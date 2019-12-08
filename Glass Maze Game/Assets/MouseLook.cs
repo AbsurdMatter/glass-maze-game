@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
-    public float MouseSensitivity = 100f;
+    public float MouseSensitivity = 70f;
     public Transform playerBody;
     float xRotation = 0f;
     
@@ -21,7 +21,7 @@ public class MouseLook : MonoBehaviour
         float MouseY = Input.GetAxis("Mouse Y") * MouseSensitivity * Time.deltaTime;
 
         xRotation = MouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        xRotation = Mathf.Clamp(xRotation, -60f, 60f);
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * MouseX);
