@@ -38,12 +38,13 @@ public class SlimeBehaviour : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.transform == player)
+        if (other.CompareTag("Player"))
         {
             m_IsPlayerInRange = true;
             anim.SetBool("isTriggered", true);
             anim.SetBool("isIdle", false);
             Debug.Log("TriggeredSlime.");
+
         }
         else
         {
@@ -53,7 +54,7 @@ public class SlimeBehaviour : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (other.transform == player)
+        if (other.CompareTag("Player"))
         {
             m_IsPlayerInRange = false;
             anim.SetBool("isIdle", true);
